@@ -1,26 +1,27 @@
-#Mutants
+# Mutants
+
 Proyecto que permite identificar un mutante de acuerdo a su secuencia de ADN
 
 Implementado en java 
 Base de datos MongoDb
 mongodb+srv://magneto:FrgDLPh2AKRRiz7@cluster0.uh4f8.mongodb.net/meli?retryWrites=true&w=majority
 
-#Descripción
+## Descripción
 Servicio que permite a través de una secuecia de ADN determinar si un humano es mutante
 
 
 Ejemplos:
 
-NO MUTANTE
-==========
+## NO MUTANTE
+
 
 ["ATGCGA","CAGTGC","TTATTT","AGACGG","AGACGG","TCACTG"]
 
-MUTANTE
-=======
+## MUTANTE
+
 ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
 
-#Generación de token
+## Generación de token
 A través de la siguiente url puede generar el token para el consumo la api
 
 http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token
@@ -30,10 +31,10 @@ Metodo POST
 'client_id=meli-mutant'
 'client_secret=3568f96e-bff0-4033-b918-5fbdb40fe637'
 
-#La url de consumo
+## La url de consumo
 http://www.melimutantstest.tk/
 
-##Para analizar la secuencia de adn
+## Para analizar la secuencia de adn
 
 POST 
 http://www.melimutantstest.tk/mutant/
@@ -45,7 +46,7 @@ Body
   "dna": ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
 }
 
-##Para las estadisticas
+## Para las estadisticas
 
 GET
 http://www.melimutantstest.tk/stats
@@ -62,7 +63,7 @@ Response
 #Swagger
 http://www.melimutantstest.tk/swagger-ui.html
 
-#Postman para probar:
+## Postman para probar:
 Puede descargar la coleccion de postman con los metodos 
 
 https://meli.blob.core.windows.net/postman/Meli%20mutants.postman_collection.json
