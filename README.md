@@ -23,7 +23,7 @@ Ejemplos:
 ## Generación de token
 A través de la siguiente url puede generar el token para el consumo la api
 
-[http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token](http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token)
+[http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token](http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token){:target="_blank" rel="noopener"}
 
 
 POST
