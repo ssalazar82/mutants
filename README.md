@@ -48,7 +48,7 @@ POST
 
 http://www.melimutantstest.tk/mutant/
 
-header Authorization beare  {{tokenMutant}}
+header Authorization bearer  {{tokenMutant}}
 
 ```
 Body
@@ -62,7 +62,7 @@ Body
 GET
 http://www.melimutantstest.tk/stats
 
-header Authorization beare  {{tokenMutant}}
+header Authorization bearer  {{tokenMutant}}
 
 ```
 Response
