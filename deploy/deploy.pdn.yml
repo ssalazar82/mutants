@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adn-mutant-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adn-mutant-test
+  template:
+    metadata:
+      labels:
+        app: adn-mutant-test
+    spec:
+      containers:
+      - name: adn-mutant-test
+        image: acrevolutionteam.azurecr.io/adn-mutant-test:v1
+        ports:
+        - containerPort: 80
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: prod
+        resources:
+          requests:
+            cpu: 200m
+            memory: 700Mi 
+          limits:
+            cpu: 300m
+            memory: 1000Mi
+        imagePullPolicy: Always            
+      imagePullSecrets:
+      - name: registrosatrack
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adn-mutant-test
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: adn-mutant-test
