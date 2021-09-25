@@ -21,10 +21,14 @@ Ejemplos:
 ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
 ```
 ## Generación de token
+
+Se utiliza keycloak para la autenticación con el servicio backend
+
 A través de la siguiente url puede generar el token para el consumo la api
 
-[http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token](http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token){:target="_blank" rel="noopener"}
+[http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token](http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token)
 
+Se genera un client y un secret con el cual se genera un token que permite el uso de la api.
 
 POST
 ```
