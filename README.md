@@ -24,26 +24,34 @@ Ejemplos:
 A través de la siguiente url puede generar el token para el consumo la api
 
 http://server-backend1.eastus.cloudapp.azure.com:8080/auth/realms/meli/protocol/openid-connect/token
-Metodo POST
+
+
+POST
+```
 'Content-Type: application/x-www-form-urlencoded'
 'grant_type=client_credentials'
 'client_id=meli-mutant'
 'client_secret=3568f96e-bff0-4033-b918-5fbdb40fe637'
+```
 
 ## La url de consumo
+
 http://www.melimutantstest.tk/
 
 ## Para analizar la secuencia de adn
 
 POST 
+
 http://www.melimutantstest.tk/mutant/
 
 header Authorization beare  {{tokenMutant}}
 
+```
 Body
 {
   "dna": ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
 }
+```
 
 ## Para las estadisticas
 
@@ -52,14 +60,16 @@ http://www.melimutantstest.tk/stats
 
 header Authorization beare  {{tokenMutant}}
 
+```
 Response
 {
     "ratio": 0.6666666666666666,
     "count_mutant_dna": 2,
     "count_human_dna": 3
 }
+```
 
-#Swagger
+# Swagger
 http://www.melimutantstest.tk/swagger-ui.html
 
 ## Postman para probar:
