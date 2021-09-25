@@ -12,15 +12,14 @@ Servicio que permite a través de una secuecia de ADN determinar si un humano es
 
 Ejemplos:
 
-## NO MUTANTE
-
-
+###### No mutante
+```
 ["ATGCGA","CAGTGC","TTATTT","AGACGG","AGACGG","TCACTG"]
-
-## MUTANTE
-
+```
+###### Mutante
+```
 ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
-
+```
 ## Generación de token
 A través de la siguiente url puede generar el token para el consumo la api
 
