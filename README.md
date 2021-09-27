@@ -58,7 +58,11 @@ POST
 
 http://www.melimutantstest.tk/mutant/
 
-header Authorization bearer  {{tokenMutant}}
+header Authorization bearer  {{tokenMutant}} 
+
+{{tokenMutant}} esta variable es generada automaticamente al momento de invocar el servicio de keycloak.
+
+![alt tag](https://meli.blob.core.windows.net/images/posregdna.png)
 
 ```
 Body
@@ -66,6 +70,9 @@ Body
   "dna": ["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
 }
 ```
+Ejemplo postman
+
+![alt tag](https://meli.blob.core.windows.net/images/regdna.png)
 
 ## Para las estadisticas
 
@@ -82,6 +89,9 @@ Response
     "count_human_dna": 3
 }
 ```
+Ejemplo postman
+
+![alt tag](https://meli.blob.core.windows.net/images/consultar.png)
 
 ## Swagger
 http://www.melimutantstest.tk/swagger-ui.html
