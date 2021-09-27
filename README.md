@@ -44,6 +44,10 @@ POST
 'client_secret=3568f96e-bff0-4033-b918-5fbdb40fe637'
 ```
 
+Ejemplo a través de postman
+
+![alt tag](https://meli.blob.core.windows.net/images/get%20token.png)
+
 ## La url de consumo
 
 http://www.melimutantstest.tk/
@@ -81,6 +85,18 @@ Response
 
 ## Swagger
 http://www.melimutantstest.tk/swagger-ui.html
+
+Listado de operaciones
+
+![alt tag](https://meli.blob.core.windows.net/images/swagger1.png)
+
+![alt tag](https://meli.blob.core.windows.net/images/swagger2.png)
+
+![alt tag](https://meli.blob.core.windows.net/images/swagger3.png)
+
+Autorización
+
+![alt tag](https://meli.blob.core.windows.net/images/swagger oauth.png)
 
 ## Postman para probar:
 Puede descargar la coleccion de postman con los metodos 
