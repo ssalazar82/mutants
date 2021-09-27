@@ -100,8 +100,10 @@ Listado de operaciones
 
 ![alt tag](https://meli.blob.core.windows.net/images/swagger1.png)
 
+Detalle Mutant
 ![alt tag](https://meli.blob.core.windows.net/images/swagger2.png)
 
+Detalle Stats
 ![alt tag](https://meli.blob.core.windows.net/images/swagger3.png)
 
 Autorización
