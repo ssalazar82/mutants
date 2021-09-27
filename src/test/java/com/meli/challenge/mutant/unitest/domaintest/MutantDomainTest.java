@@ -8,12 +8,17 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.data.mongodb.core.MongoOperations;
 
 import com.meli.challenge.mutant.domain.exception.BadDnaSequenceException;
+import com.meli.challenge.mutant.domain.service.MatrixService;
 import com.meli.challenge.mutant.domain.service.MutantService;
+import com.meli.challenge.mutant.domain.service.StatService;
 import com.meli.challenge.mutant.domain.service.contract.IMatrixService;
 import com.meli.challenge.mutant.domain.service.contract.IMutantService;
+import com.meli.challenge.mutant.domain.service.contract.IStatService;
 import com.meli.challenge.mutant.infrastructure.dto.StatDto;
+import com.meli.challenge.mutant.infrastructure.repository.DnaRepository;
 import com.meli.challenge.mutant.infrastructure.service.DnaService;
 import com.meli.challenge.mutant.infrastructure.service.contract.IDnaService;
 import com.meli.challenge.mutant.unitest.builder.MutantDnaBuilder;
@@ -25,12 +30,14 @@ public class MutantDomainTest {
 	private String[] dnaIncorrect;
 	
 	private IMutantService mutantService;
+	private IStatService statService;
 
 	@Before 
 	public void initialize() {
 		this.dna = new MutantDnaBuilder().Build();
 		this.dnaIncorrect = new MutantDnaIncorrectBuilder().Build();
 		mutantService = new MutantService(mock(IMatrixService.class), mock(IDnaService.class));
+		
 	}
 
 	/*
@@ -110,4 +117,37 @@ public class MutantDomainTest {
 		assertThat(stats.getCountMutantDna()).isEqualTo(40);
 
 	}
+	
+	/*
+	 * Uso del servicio de las estadisticas - Stat
+	 * */
+	@Test
+	public void ServiceStatsTest() {	
+		DnaService dnaService = mock(DnaService.class);
+		when(dnaService.countHumans()).thenReturn(100);
+		when(dnaService.countMutants()).thenReturn(40);
+		statService = new StatService(dnaService);
+		
+		StatDto stats  = statService.getStats();
+
+		assertThat(stats.getCountMutantDna()).isEqualTo(40);
+
+	}
+	
+	/*
+	 * Uso del servicio Mutant
+	 * */
+	@Test
+	public void isMutantTest() {	
+		String[] dnaMutant = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+		MatrixService matrixService = new MatrixService();
+		DnaRepository dnaRepository = new DnaRepository(mock(MongoOperations.class));
+		DnaService dnaService = new DnaService(dnaRepository);
+		mutantService = new MutantService(matrixService, dnaService);
+		boolean isMutant = mutantService.isMutant(dnaMutant);
+		assertTrue(isMutant);
+
+	}
+	
+	
 }

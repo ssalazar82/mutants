@@ -5,7 +5,7 @@ public class MaxSizeMatrixCorrectBuilder {
 	private String[] dna;
 	
 	public  MaxSizeMatrixCorrectBuilder() {
-		this.dna = new String[]{"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA"};
+		this.dna = new String[]{"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","CCCCTA"};
 	}
 	
 	public String[] Build() {

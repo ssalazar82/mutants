@@ -97,6 +97,13 @@ public class MatrixtDomainTest {
 		assertThat(thrown).isInstanceOf(BadMinSizeMatrixException.class);
 	}
 	
+	/*Convertir a matrix*/
+	@Test
+	public void ConvertToMatrixTest() {
+		int size = maxSizeMatrixCorrect.length;
+		char[][] matrix = this.matrixService.convertArrayStringToMatrix(maxSizeMatrixCorrect);
+		assertThat(matrix.length).isEqualTo(size);
+	}	
 
 	
 

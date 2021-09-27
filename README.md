@@ -12,6 +12,18 @@ A continuación se describe la arquitectura y como interactuan sus componentes.
 Base de datos MongoDb
 mongodb+srv://magneto:FrgDLPh2AKRRiz7@cluster0.uh4f8.mongodb.net/meli?retryWrites=true&w=majority
 
+###### Valores parametrizados
+Para las matrices, se tiene configurado un valor maximo de columnas y filas:
+MAX_SIZE_MATRIX = 10;
+MIN_SIZE_MATRIX = 5;
+
+Para el análisis mutante, se tiene parametrizado:
+Cantidad de elementos consecutivos
+QUANTITY_CHARACTERS = 4; 	
+Cantidad de cadenas de secuencias con elementos consecutivos
+QUANTITY_MINIMAL_SEQUENCE = 2; 
+
+
 ## Descripción
 Servicio que permite a través de una secuecia de ADN determinar si un humano es mutante
 
