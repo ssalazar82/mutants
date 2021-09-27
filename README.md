@@ -3,6 +3,12 @@
 Proyecto que permite identificar un mutante de acuerdo a su secuencia de ADN
 
 Implementado en java 
+
+###### Arquitectura
+A continuación se describe la arquitectura y como interactuan sus componentes.
+
+https://meli.blob.core.windows.net/images/mutantes.png
+
 Base de datos MongoDb
 mongodb+srv://magneto:FrgDLPh2AKRRiz7@cluster0.uh4f8.mongodb.net/meli?retryWrites=true&w=majority
 
