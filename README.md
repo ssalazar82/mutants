@@ -96,7 +96,7 @@ Listado de operaciones
 
 Autorización
 
-![alt tag](https://meli.blob.core.windows.net/images/swagger oauth.png)
+![alt tag](https://meli.blob.core.windows.net/images/swagger4.png)
 
 ## Postman para probar:
 Puede descargar la coleccion de postman con los metodos 
