@@ -6,6 +6,10 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -18,6 +22,7 @@ import com.meli.challenge.mutant.domain.service.contract.IMatrixService;
 import com.meli.challenge.mutant.domain.service.contract.IMutantService;
 import com.meli.challenge.mutant.domain.service.contract.IStatService;
 import com.meli.challenge.mutant.infrastructure.dto.StatDto;
+import com.meli.challenge.mutant.infrastructure.model.Dna;
 import com.meli.challenge.mutant.infrastructure.repository.DnaRepository;
 import com.meli.challenge.mutant.infrastructure.service.DnaService;
 import com.meli.challenge.mutant.infrastructure.service.contract.IDnaService;
@@ -101,6 +106,19 @@ public class MutantDomainTest {
 	}
 	
 	/*
+	 * Valida service Dna 
+	 * */
+	@Test
+	public void ServiceDnaTest() {
+		DnaService dnaService = new DnaService(mock(DnaRepository.class));
+		when(dnaService.countHumans()).thenReturn(100);
+		when(dnaService.countMutants()).thenReturn(40);
+		
+		assertThat(dnaService.countHumans()).isEqualTo(100);
+
+	}
+	
+	/*
 	 * Valida get de las estadisticas - Mutant
 	 * */
 	@Test
@@ -146,6 +164,95 @@ public class MutantDomainTest {
 		mutantService = new MutantService(matrixService, dnaService);
 		boolean isMutant = mutantService.isMutant(dnaMutant);
 		assertTrue(isMutant);
+
+	}
+	
+	/*
+	 * Metodos mongo db - findAll
+	 * */
+	@Test
+	public void findAllTest() {	
+		String[] dnaMutant = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+		
+		MongoOperations mongoDb = mock(MongoOperations.class);
+		List<Dna> listDna = new ArrayList<>();
+	    Dna dna = new Dna();
+	    dna.setDna(dnaMutant);
+	    dna.setMutant(true);
+	    listDna.add(dna);
+	    
+		when(mongoDb.findAll(Dna.class)).thenReturn(listDna);
+		DnaRepository dnaRepository = new DnaRepository(mongoDb);
+		
+		assertThat(dnaRepository.findAll().get().size()).isEqualTo(0);
+
+	}
+	
+	/*
+	 * Metodos mongo db - Count
+	 * */
+	@Test
+	public void findACountTest() {	
+		String[] dnaMutant = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+		
+		MongoOperations mongoDb = mock(MongoOperations.class);
+		List<Dna> listDna = new ArrayList<>();
+	    Dna dna = new Dna();
+	    dna.setDna(dnaMutant);
+	    dna.setMutant(true);
+	    listDna.add(dna);
+	    
+		when(mongoDb.findAll(Dna.class)).thenReturn(listDna);
+		DnaRepository dnaRepository = new DnaRepository(mongoDb);
+		int findCountMutants = dnaRepository.countMutants();
+		
+		assertThat(dnaRepository.countHumans()).isEqualTo(0);
+
+	}
+	
+	/*
+	 * Metodos mongo db - delete
+	 * */
+	@Test
+	public void deleteTest() {	
+		String[] dnaMutant = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+		
+		MongoOperations mongoDb = mock(MongoOperations.class);
+		List<Dna> listDna = new ArrayList<>();
+	    Dna dna = new Dna();
+	    dna.setDna(dnaMutant);
+	    dna.setMutant(true);
+	    listDna.add(dna);
+	    
+		when(mongoDb.findAll(Dna.class)).thenReturn(listDna);
+		DnaRepository dnaRepository = new DnaRepository(mongoDb);
+		
+		dnaRepository.deleteDna("1");
+		
+		assertThat(dnaRepository.findOne("1")).isEqualTo(Optional.empty());
+
+	}
+	
+	/*
+	 * Metodos mongo db - Update
+	 * */
+	@Test
+	public void UpdateTest() {	
+		String[] dnaMutant = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+		
+		MongoOperations mongoDb = mock(MongoOperations.class);
+		List<Dna> listDna = new ArrayList<>();
+	    Dna dna = new Dna();
+	    dna.setDna(dnaMutant);
+	    dna.setMutant(true);
+	    listDna.add(dna);
+	    
+		when(mongoDb.findAll(Dna.class)).thenReturn(listDna);
+		DnaRepository dnaRepository = new DnaRepository(mongoDb);
+		
+		dnaRepository.updateDna(dna);
+		
+		assertThat(dnaRepository.findOne("1")).isEqualTo(Optional.empty());
 
 	}
 	
