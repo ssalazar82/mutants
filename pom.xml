@@ -243,6 +243,13 @@
 			        <excludes>
 			            <exclude>com/meli/challenge/mutant/application/**</exclude>
 			            <exclude>com/meli/challenge/mutant/App.*</exclude>
+			            <exclude>com/meli/challenge/mutant/util/StringUtils.*</exclude>
+			            <exclude>com/meli/challenge/mutant/util/DateUTC.*</exclude>
+			            <exclude>com/meli/challenge/mutant/domain/exception/BadRequestException.*</exclude>
+			            <exclude>com/meli/challenge/mutant/infrastructure/exception/DnaNotFoundException.*</exclude>
+			            <exclude>com/meli/challenge/mutant/domain/property/MutantProperties.*</exclude>
+			            <exclude>com/meli/challenge/mutant/domain/strategy/*</exclude>
+			            <exclude>com/meli/challenge/mutant/domain/entity/Log.*</exclude>
 			            <exclude>**/config/*</exclude>
 			        </excludes>
     			 </configuration>
